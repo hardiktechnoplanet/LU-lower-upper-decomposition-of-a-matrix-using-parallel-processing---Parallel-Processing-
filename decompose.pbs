@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -l nodes=2:ppn=2,walltime=1:00
+#PBS -N ludecomposition
+#PBS -q edu_shared
+#PBS -m abe
+#PBS -M vchana2@uic.edu
+#PBS -e decompose.err
+#PBS -o decompose.out
+#PBS -d /export/home/vchana2/ludecomposition
+module load tools/mpich2-1.5-gcc
+mpirun -machinefile $PBS_NODEFILE -np $PBS_NP ./decompose
